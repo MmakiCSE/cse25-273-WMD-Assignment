@@ -1,13 +1,13 @@
-<DOCTYPE html>
-  <html lang="eng">
-    <head>
-         <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SYNCRO TECHNOLOGIES | Home</title>
+    <title>SYNCRO TECHNOLOGIES | Feedback</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-light">
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
         <div class="container">
             <a class="navbar-brand fw-bold fs-3" href="index.html">SYNCRO</a>
@@ -16,21 +16,77 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
                     <li class="nav-item"><a class="btn btn-primary ms-2" href="signup.html">Signup</a></li>
-                    
                 </ul>
             </div>
         </div>
     </nav>
-      <title>
-        <body>
-          
-        </body>
-      </title>
-    </head>
-  </html>
 
+    <main class="container mt-5 mb-5">
+        <div class="text-center mb-5">
+            <h1 class="fw-bold">We'd Love to Hear From You</h1>
+            <p class="text-muted">Got a question about a product or just want to leave a review? Drop us a line.</p>
+        </div>
+
+        <div class="row bg-white p-4 p-md-5 rounded shadow-sm">
+            <div class="col-md-7 mb-4 mb-md-0 border-end pe-md-5">
+                <h4 class="mb-4">Send Us a Message</h4>
+                <form>
+                    <div class="mb-3">
+                        <label for="fullName" class="form-label fw-semibold">Full Name</label>
+                        <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="emailAddress" class="form-label fw-semibold">Email Address</label>
+                        <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="subject" class="form-label fw-semibold">Subject</label>
+                        <select class="form-select" id="subject" required>
+                            <option value="" selected disabled>Choose a category...</option>
+                            <option value="General">General Inquiry</option>
+                            <option value="Support">Technical Support</option>
+                            <option value="Order">Order Issue</option>
+                            <option value="Feedback">Website Feedback</option>
+                        </select>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="form-label fw-semibold">Your Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="How can we help you today?" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 fw-bold">Submit Feedback</button>
+                </form>
+            </div>
+
+            <div class="col-md-5 ps-md-5 d-flex flex-column justify-content-center">
+                <h4 class="mb-4">Contact Information</h4>
+                
+                <div class="mb-4">
+                    <h6 class="fw-bold text-uppercase text-muted mb-1">Headquarters</h6>
+                    <p class="mb-0">Block 7 Innovation Hub<br>Gaborone, Botswana</p>
+                </div>
+
+                <div class="mb-4">
+                    <h6 class="fw-bold text-uppercase text-muted mb-1">Direct Contact</h6>
+                    <p class="mb-0"><strong>Email:</strong> support@syncrotech.co.bw<br><strong>Phone:</strong> +267 390 0000</p>
+                </div>
+
+                <div>
+                    <h6 class="fw-bold text-uppercase text-muted mb-1">Business Hours</h6>
+                    <p class="mb-0">Monday - Friday: 08:00 AM - 17:00 PM<br>Weekends: Closed</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
