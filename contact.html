@@ -1,2 +1,85 @@
 <!DOCTYPE html>
-<html lang en
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNCRO TECHNOLOGIES | Feedback</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html">SYNCRO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="feedback.html">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="account.html">Account</a></li>
+                    <li class="nav-item"><a class="btn btn-primary ms-2" href="signup.html">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mt-5 mb-5" style="max-width: 700px;">
+        
+        <h3 class="text-center fw-bold mb-4 border-bottom border-dark pb-2">CUSTOMER REVIEWS</h3>
+
+        <div class="card border-dark mb-5">
+            <div class="card-body">
+                <p class="mb-2"><strong>Name:</strong> Thabo Molefe</p>
+                <p class="mb-2"><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+                <p class="mb-0"><strong>Comment:</strong> The laptops here are top tier. Delivery to Block 7 was super fast!</p>
+            </div>
+        </div>
+
+        <div class="border border-dark text-center py-2 mb-4 bg-white fw-bold">
+            SUBMIT REVIEW
+        </div>
+
+        <form>
+            
+            <div class="row mb-3 align-items-center">
+                <label for="name" class="col-sm-2 col-form-label fw-semibold">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control border-dark" id="name" placeholder="Enter your name">
+                </div>
+            </div>
+
+            <div class="row mb-3 align-items-center">
+                <label for="rating" class="col-sm-2 col-form-label fw-semibold">Rating</label>
+                <div class="col-sm-10">
+                    <select class="form-select border-dark w-50" id="rating">
+                        <option value="5">⭐⭐⭐⭐⭐</option>
+                        <option value="4">⭐⭐⭐⭐</option>
+                        <option value="3">⭐⭐⭐</option>
+                        <option value="2">⭐⭐</option>
+                        <option value="1">⭐</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <label for="comment" class="col-sm-2 col-form-label fw-semibold">Comment</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control border-dark" id="comment" rows="4"></textarea>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <button type="submit" class="btn btn-outline-dark w-100 fw-bold">SUBMIT</button>
+            </div>
+
+        </form>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
