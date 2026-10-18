@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYNCRO TECHNOLOGIES | Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.a.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!--
+        This tiny block only holds what inline styles can't do:
+        focus glow, hover, placeholder colour and the "selected" look on radio cards.
+        Everything else on the page is inline.
+        Gold: #d4af37 | Light gold: #f5d76e | Deep gold: #b8860b | Silver: #c0c0c0
+    -->
+    <style>
+        .syn-input { background:#0a0a0a !important; color:#f2f2f2 !important; border:1px solid #2e2e2e !important; border-radius:10px; padding:.7rem .9rem; }
+        .syn-input::placeholder { color:#6f6f6f; }
+        .syn-input:focus { border-color:#d4af37 !important; box-shadow:0 0 0 .2rem rgba(212,175,55,.18) !important; }
+        .syn-input.is-invalid { border-color:#e5604d !important; }
+        .syn-input option { background:#0a0a0a; color:#f2f2f2; }
+        .syn-option { display:block; cursor:pointer; padding:.9rem 1rem; border:1px solid #2e2e2e; border-radius:12px; background:#0a0a0a; transition:border-color .2s, background .2s; height:100%; }
+        .syn-option:hover { border-color:#8a7226; }
+        .btn-check:checked + .syn-option { border-color:#d4af37; background:rgba(212,175,55,.09); }
+        .btn-check:focus-visible + .syn-option { box-shadow:0 0 0 .2rem rgba(212,175,55,.35); }
+        .syn-gold-btn { background:linear-gradient(135deg,#f5d76e 0%,#d4af37 50%,#b8860b 100%); color:#000; font-weight:700; border:none; border-radius:12px; letter-spacing:.3px; transition:filter .2s, transform .1s; }
+        .syn-gold-btn:hover { filter:brightness(1.1); color:#000; }
+        .syn-gold-btn:active { transform:scale(.99); }
+        .syn-gold-btn:focus-visible { box-shadow:0 0 0 .25rem rgba(212,175,55,.4); color:#000; }
+        .syn-qty-btn { background:#0a0a0a; color:#d4af37; border:1px solid #2e2e2e; width:40px; border-radius:10px; font-size:1.2rem; line-height:1; }
+        .syn-qty-btn:hover { border-color:#d4af37; background:#141414; color:#f5d76e; }
+        .syn-nav-link:hover { color:#d4af37 !important; }
+        .syn-link { color:#c0c0c0; text-decoration:none; }
+        .syn-link:hover { color:#d4af37; }
+        .invalid-feedback { color:#ff8a78; }
+        @media (prefers-reduced-motion: reduce) { * { transition:none !important; } }
+    </style>
+</head>
+<body style="background:#000; color:#e8e8e8; font-family:'Manrope',system-ui,sans-serif;">
+
+    <!-- NAVBAR (same links as shop.html) -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background:#000; border-bottom:1px solid rgba(212,175,55,.35);">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-3" href="index.html" style="font-family:'Cormorant Garamond',serif; letter-spacing:4px; background:linear-gradient(135deg,#f5d76e,#d4af37 55%,#b8860b); -webkit-background-clip:text; background-clip:text; color:transparent;">SYNCRO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-label="Toggle navigation" style="border-color:#d4af37;">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link syn-nav-link" href="index.html" style="color:#c0c0c0;">Home</a></li>
+                    <li class="nav-item"><a class="nav-link syn-nav-link active" href="shop.html" style="color:#d4af37;">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link syn-nav-link" href="about.html" style="color:#c0c0c0;">About</a></li>
+                    <li class="nav-item"><a class="nav-link syn-nav-link" href="feedback.html" style="color:#c0c0c0;">Feedback</a></li>
+                    <li class="nav-item"><a class="nav-link syn-nav-link" href="account.html" style="color:#c0c0c0;">Account</a></li>
+                    <li class="nav-item"><a class="btn syn-gold-btn ms-lg-2 btn-sm px-3 py-2" href="signup.html">Signup</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SHIPPING BAR -->
+    <div class="py-2 text-center" style="background:#0a0a0a; border-bottom:1px solid #1f1f1f;">
+        <p class="mb-0 small" style="color:#c0c0c0;"><strong style="color:#d4af37;">Free shipping</strong> on orders over P500.00</p>
+    </div>
+
+    <main class="container mt-4 mb-5">
+
+        <!-- Breadcrumb + heading -->
+        <nav aria-label="breadcrumb" class="small mb-2">
+            <a href="shop.html" class="syn-link">Shop</a>
+            <span style="color:#555;" class="mx-2">/</span>
+            <span style="color:#d4af37;">Checkout</span>
+        </nav>
+        <h1 class="mb-1" style="font-family:'Cormorant Garamond',serif; font-weight:600; font-size:2.6rem; color:#f5f5f5;">Complete your order</h1>
+        <p class="mb-4" style="color:#9a9a9a;">Tell us where to send it and how you'd like to pay. It takes about a minute.</p>
+
+        <div class="row g-4">
+
+            <!-- LEFT: FORM -->
+            <section class="col-lg-7">
+                <form id="checkoutForm" novalidate>
+
+                    <!-- 1. Contact -->
+                    <div class="p-4 mb-4" style="background:#0d0d0d; border:1px solid rgba(212,175,55,.22); border-radius:16px;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#f5d76e,#b8860b); color:#000;">1</span>
+                            <h2 class="h4 mb-0" style="font-family:'Cormorant Garamond',serif; font-weight:600; color:#f5f5f5;">Contact details</h2>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-12">
+                                <label for="fullName" class="form-label small" style="color:#c0c0c0;">Full name</label>
+                                <input type="text" id="fullName" class="form-control syn-input" placeholder="e.g. Thato Molefe" required autocomplete="name">
+                                <div class="invalid-feedback">Enter your full name.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email" class="form-label small" style="color:#c0c0c0;">Email</label>
+                                <input type="email" id="email" class="form-control syn-input" placeholder="you@example.com" required autocomplete="email">
+                                <div class="invalid-feedback">Enter a valid email address.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="phone" class="form-label small" style="color:#c0c0c0;">Phone</label>
+                                <div class="input-group has-validation">
+                                    <span class="input-group-text" style="background:#141414; color:#d4af37; border:1px solid #2e2e2e; border-radius:10px 0 0 10px;">+267</span>
+                                    <input type="tel" id="phone" class="form-control syn-input" style="border-radius:0 10px 10px 0;" placeholder="71 234 567" pattern="[0-9 ]{7,10}" required autocomplete="tel-national">
+                                    <div class="invalid-feedback">Enter a 7 or 8 digit phone number.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Delivery method -->
+                    <div class="p-4 mb-4" style="background:#0d0d0d; border:1px solid rgba(212,175,55,.22); border-radius:16px;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#f5d76e,#b8860b); color:#000;">2</span>
+                            <h2 class="h4 mb-0" style="font-family:'Cormorant Garamond',serif; font-weight:600; color:#f5f5f5;">Delivery method</h2>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="delivery" id="delStandard" value="standard" checked>
+                                <label class="syn-option" for="delStandard">
+                                    <span class="d-block fw-semibold" style="color:#f5f5f5;">Standard</span>
+                                    <span class="d-block small" style="color:#9a9a9a;">3 to 5 working days</span>
+                                    <span class="d-block small mt-2 fw-semibold" style="color:#d4af37;" id="standardPriceLabel">Free</span>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="delivery" id="delExpress" value="express">
+                                <label class="syn-option" for="delExpress">
+                                    <span class="d-block fw-semibold" style="color:#f5f5f5;">Express</span>
+                                    <span class="d-block small" style="color:#9a9a9a;">1 to 2 working days</span>
+                                    <span class="d-block small mt-2 fw-semibold" style="color:#d4af37;">P120.00</span>
+                                </label>
+                            </div>
+                            <div class="col-md-4">
+                                <input type="radio" class="btn-check" name="delivery" id="delPickup" value="pickup">
+                                <label class="syn-option" for="delPickup">
+                                    <span class="d-block fw-semibold" style="color:#f5f5f5;">Store pickup</span>
+                                    <span class="d-block small" style="color:#9a9a9a;">We email you when it's ready</span>
+                                    <span class="d-block small mt-2 fw-semibold" style="color:#d4af37;">Free</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Address fields (hidden for pickup) -->
+                        <div id="addressFields" class="row g-3 mt-1">
+                            <div class="col-12">
+                                <label for="address" class="form-label small" style="color:#c0c0c0;">Street address or plot number</label>
+                                <input type="text" id="address" class="form-control syn-input" placeholder="Plot 1234, Extension 12" required autocomplete="street-address">
+                                <div class="invalid-feedback">Enter your delivery address.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="city" class="form-label small" style="color:#c0c0c0;">City or village</label>
+                                <select id="city" class="form-select syn-input" required>
+                                    <option value="" selected disabled>Choose…</option>
+                                    <option>Gaborone</option>
+                                    <option>Francistown</option>
+                                    <option>Maun</option>
+                                    <option>Kasane</option>
+                                    <option>Palapye</option>
+                                    <option>Serowe</option>
+                                    <option>Lobatse</option>
+                                    <option>Selebi-Phikwe</option>
+                                    <option>Molepolole</option>
+                                    <option>Mahalapye</option>
+                                    <option>Other</option>
+                                </select>
+                                <div class="invalid-feedback">Choose your city or village.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="notes" class="form-label small" style="color:#c0c0c0;">Delivery notes <span style="color:#6f6f6f;">(optional)</span></label>
+                                <input type="text" id="notes" class="form-control syn-input" placeholder="Gate colour, landmark, etc.">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Payment -->
+                    <div class="p-4 mb-4" style="background:#0d0d0d; border:1px solid rgba(212,175,55,.22); border-radius:16px;">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <span class="d-inline-flex align-items-center justify-content-center fw-bold" style="width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,#f5d76e,#b8860b); color:#000;">3</span>
+                            <h2 class="h4 mb-0" style="font-family:'Cormorant Garamond',serif; font-weight:600; color:#f5f5f5;">Payment</h2>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-6 col-md-3">
+                                <input type="radio" class="btn-check" name="payment" id="payCard" value="Card" checked>
+                                <label class="syn-option text-center" for="payCard"><span class="fw-semibold" style="color:#f5f5f5;">Card</span></label>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="radio" class="btn-check" name="payment" id="payOrange" value="Orange Money">
+                                <label class="syn-option text-center" for="payOrange"><span class="fw-semibold" style="color:#f5f5f5;">Orange Money</span></label>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="radio" class="btn-check" name="payment" id="payMyZaka" value="MyZaka">
+                                <label class="syn-option text-center" for="payMyZaka"><span class="fw-semibold" style="color:#f5f5f5;">MyZaka</span></label>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <input type="radio" class="btn-check" name="payment" id="payCash" value="Cash on delivery">
+                                <label class="syn-option text-center" for="payCash"><span class="fw-semibold" style="color:#f5f5f5;">Cash on delivery</span></label>
+                            </div>
+                        </div>
+
+                        <!-- Card fields -->
+                        <div id="cardFields" class="row g-3 mt-1">
+                            <div class="col-12">
+                                <label for="cardName" class="form-label small" style="color:#c0c0c0;">Name on card</label>
+                                <input type="text" id="cardName" class="form-control syn-input" placeholder="As shown on your card" autocomplete="cc-name">
+                                <div class="invalid-feedback">Enter the name on your card.</div>
+                            </div>
+                            <div class="col-12">
+                                <label for="cardNumber" class="form-label small" style="color:#c0c0c0;">Card number</label>
+                                <input type="text" id="cardNumber" class="form-control syn-input" placeholder="1234 5678 9012 3456" inputmode="numeric" maxlength="19" autocomplete="cc-number">
+                                <div class="invalid-feedback">Enter a 16 digit card number.</div>
+                            </div>
+                            <div class="col-6">
+                                <label for="cardExpiry" class="form-label small" style="color:#c0c0c0;">Expiry</label>
+                                <input type="text" id="cardExpiry" class="form-control syn-input" placeholder="MM/YY" inputmode="numeric" maxlength="5" autocomplete="cc-exp">
+                                <div class="invalid-feedback">Use the format MM/YY.</div>
+                            </div>
+                            <div class="col-6">
+                                <label for="cardCvv" class="form-label small" style="color:#c0c0c0;">CVV</label>
+                                <input type="password" id="cardCvv" class="form-control syn-input" placeholder="123" inputmode="numeric" maxlength="4" autocomplete="cc-csc">
+                                <div class="invalid-feedback">Enter the 3 or 4 digit code.</div>
+                            </div>
+                        </div>
+
+                        <!-- Mobile money note -->
+                        <div id="mobileMoneyNote" class="small mt-3 p-3 d-none" style="background:#0a0a0a; border:1px dashed #3a3a3a; border-radius:10px; color:#c0c0c0;">
+                            After you place the order, a payment prompt will be sent to the phone number above. Approve it to confirm your order.
+                        </div>
+                        <div id="cashNote" class="small mt-3 p-3 d-none" style="background:#0a0a0a; border:1px dashed #3a3a3a; border-radius:10px; color:#c0c0c0;">
+                            Pay the courier when your order arrives. Please have the exact amount ready.
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- RIGHT: SUMMARY -->
+            <aside class="col-lg-5">
+                <div class="p-4 sticky-lg-top" style="top:90px; background:#0d0d0d; border:1px solid rgba(212,175,55,.45); border-radius:16px; box-shadow:0 0 40px rgba(212,175,55,.06);">
+                    <h2 class="h4 mb-3" style="font-family:'Cormorant Garamond',serif; font-weight:600; color:#f5f5f5;">Order summary</h2>
+
+                    <!-- Product picker (pre-selected from the Shop page) -->
+                    <label for="productSelect" class="form-label small" style="color:#c0c0c0;">Product</label>
+                    <select id="productSelect" class="form-select syn-input mb-3"></select>
+
+                    <div class="d-flex gap-3 align-items-center p-3 mb-3" style="background:#fff; border-radius:12px;">
+                        <img id="productImg" src="" alt="" style="width:96px; height:96px; object-fit:contain; flex-shrink:0;">
+                        <div>
+                            <div id="productName" class="fw-bold" style="color:#000;"></div>
+                            <div id="productBrand" class="small" style="color:#666;"></div>
+                            <div id="productPrice" class="fw-semibold mt-1" style="color:#8a6d0b;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <span style="color:#c0c0c0;">Quantity</span>
+                        <div class="d-flex gap-2 align-items-center">
+                            <button type="button" class="syn-qty-btn" id="qtyMinus" aria-label="Decrease quantity">&minus;</button>
+                            <input type="number" id="qty" class="form-control syn-input text-center px-1" style="width:64px;" value="1" min="1" max="10" aria-label="Quantity">
+                            <button type="button" class="syn-qty-btn" id="qtyPlus" aria-label="Increase quantity">+</button>
+                        </div>
+                    </div>
+
+                    <hr style="border-color:#2a2a2a; opacity:1;">
+
+                    <div class="d-flex justify-content-between mb-2" style="color:#c0c0c0;">
+                        <span>Subtotal</span><span id="subtotal"></span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2" style="color:#c0c0c0;">
+                        <span id="deliveryLabel">Delivery</span><span id="deliveryCost"></span>
+                    </div>
+
+                    <hr style="border-color:#2a2a2a; opacity:1;">
+
+                    <div class="d-flex justify-content-between align-items-baseline mb-4">
+                        <span class="fs-5" style="color:#f5f5f5;">Total</span>
+                        <span id="total" class="fw-bold" style="font-family:'Cormorant Garamond',serif; font-size:2rem; background:linear-gradient(135deg,#f5d76e,#d4af37 55%,#b8860b); -webkit-background-clip:text; background-clip:text; color:transparent;"></span>
+                    </div>
+
+                    <button type="submit" form="checkoutForm" class="btn syn-gold-btn w-100 py-3 fs-6">Place order</button>
+                    <a href="shop.html" class="btn w-100 mt-2 py-2" style="color:#c0c0c0; border:1px solid #3a3a3a; border-radius:12px; background:transparent;">Back to shop</a>
+
+                    <p class="small text-center mt-3 mb-0" style="color:#7d7d7d;">Your details are only used to process this order.</p>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- CONFIRMATION MODAL -->
+    <div class="modal fade" id="confirmModal" tabindex="-1" aria-labelledby="confirmTitle" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="background:#0d0d0d; border:1px solid #d4af37; border-radius:18px;">
+                <div class="modal-body p-4 text-center">
+                    <div class="d-inline-flex align-items-center justify-content-center mb-3" style="width:64px; height:64px; border-radius:50%; background:linear-gradient(135deg,#f5d76e,#b8860b); color:#000; font-size:2rem; font-weight:700;">&#10003;</div>
+                    <h2 id="confirmTitle" class="mb-2" style="font-family:'Cormorant Garamond',serif; font-weight:600; color:#f5f5f5;">Order placed</h2>
+                    <p class="mb-3" style="color:#c0c0c0;">Thank you, <span id="confirmName" style="color:#d4af37;"></span>. A confirmation will be sent to <span id="confirmEmail" style="color:#f5f5f5;"></span>.</p>
+                    <div class="text-start p-3 mb-4 small" style="background:#0a0a0a; border:1px solid #2a2a2a; border-radius:12px; color:#c0c0c0;">
+                        <div class="d-flex justify-content-between mb-1"><span>Order number</span><span id="confirmOrderNo" class="fw-semibold" style="color:#d4af37;"></span></div>
+                        <div class="d-flex justify-content-between mb-1"><span>Item</span><span id="confirmItem" class="text-end" style="color:#f5f5f5;"></span></div>
+                        <div class="d-flex justify-content-between mb-1"><span>Delivery</span><span id="confirmDelivery" style="color:#f5f5f5;"></span></div>
+                        <div class="d-flex justify-content-between mb-1"><span>Payment</span><span id="confirmPayment" style="color:#f5f5f5;"></span></div>
+                        <div class="d-flex justify-content-between"><span>Total</span><span id="confirmTotal" class="fw-semibold" style="color:#f5f5f5;"></span></div>
+                    </div>
+                    <a href="shop.html" class="btn syn-gold-btn w-100 py-2">Continue shopping</a>
+                    <a href="index.html" class="d-inline-block mt-3 small syn-link">Go to home</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ---------- PRODUCT CATALOGUE (matches shop.html) ---------- */
+            const products = {
+                'dell-xps-13':       { name: 'Dell XPS 13',              brand: 'Dell · Laptop',        price: 20000, img: 'https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/xps-notebooks/9345/media-gallery/touch/gray/notebook-xps-13-9345-t-gray-gallery-5.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3509&hei=2082&qlt=100,1&resMode=sharp2&size=3509,2082&chrss=full&imwidth=5000' },
+                'lenovo-x1-carbon':  { name: 'Lenovo ThinkPad X1 Carbon', brand: 'Lenovo · Laptop',     price: 30500, img: 'https://www.notebookcheck.net/fileadmin/_processed_/e/7/csm_thinkpad_X1Carbon_G13_teaser_fbb65abcbd.jpg' },
+                'iphone-14-pro':     { name: 'iPhone 14 Pro',            brand: 'Apple · Phone',        price: 9500,  img: 'https://istore.co.bw/cdn/shop/files/iPhone14Pro_SpaceBlack_c13aff10-135b-4f82-ba60-a379a61f370d_5000x.png?v=1698144970' },
+                'samsung-s24-ultra': { name: 'Samsung S24 Ultra',        brand: 'Samsung · Phone',      price: 10000, img: 'https://images.unsplash.com/photo-1705585174953-9b2aa8afc174?w=600&auto=format&fit=crop&q=60' },
+                'xiaomi-17-pro':     { name: 'Xiaomi 17 Pro',            brand: 'Xiaomi · Phone',       price: 20000, img: 'https://www.chooseyourmobile.com/wp-content/uploads/2025/09/Xiaomi-17-Pro-5G.webp' },
+                'hp-pavilion-15':    { name: 'HP Pavilion 15',           brand: 'HP · Laptop',          price: 14500, img: 'https://5.imimg.com/data5/ANDROID/Default/2024/8/442688217/WX/DV/CM/45732101/product-jpeg-1000x1000.jpg' },
+                'acer-nitro-70':     { name: 'Acer Nitro 70 AMD',        brand: 'Acer · Desktop',       price: 35500, img: 'https://www.grover.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fgrover%2Fimage%2Fupload%2Fe_trim%2Fb_white%2Cc_pad%2Cdpr_2.0%2Ch_500%2Cw_520%2Ff_auto%2Cq_auto%2Fv1722325202%2Fi9wlsoj5gyjevgmicbe4.png&w=1200&q=75' },
+                'hisense-34g6':      { name: 'Hisense 34G6 PRO',         brand: 'Hisense · Monitor',    price: 12500, img: 'https://hisense.co.za/wp-content/uploads/2026/03/34G6Kpro-1.jpg' },
+                'ipad-pro-m4':       { name: 'iPad Pro (M4 Pro)',        brand: 'Apple · Tablet',       price: 15500, img: 'https://www.apple.com/v/ipad-pro/aw/images/overview/contrast/product-tile/ipad_pro__ed9n4fxunkia_large_2x.jpg' },
+                'huawei-matepad-pro':{ name: 'Huawei MatePad Pro',       brand: 'Huawei · Tablet',      price: 11500, img: 'https://consumer.huawei.com/dam/content/dam/huawei-cbg-site/common/mkt/pdp/tablets/matepad-pro-12-2-2025/images/hero/huawei-matepad-pro-12-2-inch-kv-2x.webp' },
+                'jbl-flip-7':        { name: 'JBL Flip 7',               brand: 'JBL · Audio',          price: 7500,  img: 'https://www.soundphilereview.com/wp-content/uploads/2025/04/JBL-Flip-7-review.jpg' },
+                'soundcore-space-one':{ name: 'Soundcore Space Ones',    brand: 'Soundcore · Audio',    price: 1000,  img: 'https://cdn.shopify.com/s/files/1/0516/3761/6830/files/63fa1776-8ad3-4ad3-a54f-f4c3484cfbe7_A3035Z11_Rich_image_TD01_US_V1_3838x.png?v=1749637691' },
+                'airpods-pro-3':     { name: 'AirPods Pro 3rd Gen',      brand: 'Apple · Audio',        price: 2500,  img: 'https://helios-i.mashable.com/imagery/articles/06p5PGAjzDSZysaktotmIwr/hero-image.fill.size_1248x702.v1699805275.jpg' },
+                'apple-watch-11':    { name: 'Apple Watch Series 11',    brand: 'Apple · Accessories',  price: 2500,  img: 'https://www.apple.com/assets-www/en_WW/watch/product_tile/large/s11_01ae61a6b_2x.png' },
+                'sony-wh1000xm5':    { name: 'Sony WH-1000XM5',          brand: 'Sony · Audio',         price: 2000,  img: 'https://m.media-amazon.com/images/I/61eeHPRFQ9L._AC_SL1500_.jpg' }
+            };
+
+            const FREE_SHIPPING_MIN = 500;   // free standard delivery over P500
+            const STANDARD_FEE = 50;
+            const EXPRESS_FEE = 120;
+
+            /* ---------- ELEMENTS ---------- */
+            const $ = id => document.getElementById(id);
+            const form = $('checkoutForm');
+            const select = $('productSelect');
+            const qtyInput = $('qty');
+
+            const money = n => 'P' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+            /* ---------- WHICH PRODUCT? (buy.html?product=dell-xps-13) ---------- */
+            const params = new URLSearchParams(window.location.search);
+            let currentId = params.get('product');
+            if (!products[currentId]) currentId = 'dell-xps-13';
+
+            Object.keys(products).forEach(id => {
+                const opt = document.createElement('option');
+                opt.value = id;
+                opt.textContent = products[id].name + ' (' + money(products[id].price) + ')';
+                select.appendChild(opt);
+            });
+            select.value = currentId;
+
+            /* ---------- RENDER SUMMARY ---------- */
+            function getQty() {
+                let q = parseInt(qtyInput.value, 10);
+                if (isNaN(q) || q < 1) q = 1;
+                if (q > 10) q = 10;
+                return q;
+            }
+
+            function deliveryInfo(subtotal) {
+                const method = form.querySelector('input[name="delivery"]:checked').value;
+                if (method === 'express') return { label: 'Express delivery', cost: EXPRESS_FEE, text: 'Express (1 to 2 days)' };
+                if (method === 'pickup')  return { label: 'Store pickup',     cost: 0,           text: 'Store pickup' };
+                const fee = subtotal >= FREE_SHIPPING_MIN ? 0 : STANDARD_FEE;
+                return { label: 'Standard delivery', cost: fee, text: 'Standard (3 to 5 days)' };
+            }
+
+            function render() {
+                const p = products[currentId];
+                const qty = getQty();
+                qtyInput.value = qty;
+
+                $('productImg').src = p.img;
+                $('productImg').alt = p.name;
+                $('productName').textContent = p.name;
+                $('productBrand').textContent = p.brand;
+                $('productPrice').textContent = money(p.price);
+
+                const subtotal = p.price * qty;
+                const d = deliveryInfo(subtotal);
+                const total = subtotal + d.cost;
+
+                $('subtotal').textContent = money(subtotal);
+                $('deliveryLabel').textContent = d.label;
+                $('deliveryCost').textContent = d.cost === 0 ? 'Free' : money(d.cost);
+                $('total').textContent = money(total);
+                $('standardPriceLabel').textContent = subtotal >= FREE_SHIPPING_MIN ? 'Free' : money(STANDARD_FEE);
+
+                return { p, qty, subtotal, d, total };
+            }
+
+            select.addEventListener('change', () => {
+                currentId = select.value;
+                // keep the URL in sync so refresh / sharing keeps the same product
+                history.replaceState(null, '', 'buy.html?product=' + currentId);
+                render();
+            });
+
+            $('qtyMinus').addEventListener('click', () => { qtyInput.value = getQty() - 1; render(); });
+            $('qtyPlus').addEventListener('click',  () => { qtyInput.value = getQty() + 1; render(); });
+            qtyInput.addEventListener('input', render);
+
+            /* ---------- DELIVERY: hide address if pickup ---------- */
+            const addressFields = $('addressFields');
+            const addressInputs = [$('address'), $('city')];
+
+            function updateDeliveryUI() {
+                const pickup = form.querySelector('input[name="delivery"]:checked').value === 'pickup';
+                addressFields.classList.toggle('d-none', pickup);
+                addressInputs.forEach(i => i.required = !pickup);
+                render();
+            }
+            form.querySelectorAll('input[name="delivery"]').forEach(r => r.addEventListener('change', updateDeliveryUI));
+
+            /* ---------- PAYMENT: show the right fields ---------- */
+            const cardInputs = [$('cardName'), $('cardNumber'), $('cardExpiry'), $('cardCvv')];
+
+            function updatePaymentUI() {
+                const pay = form.querySelector('input[name="payment"]:checked').value;
+                const isCard = pay === 'Card';
+                $('cardFields').classList.toggle('d-none', !isCard);
+                cardInputs.forEach(i => i.required = isCard);
+                $('mobileMoneyNote').classList.toggle('d-none', !(pay === 'Orange Money' || pay === 'MyZaka'));
+                $('cashNote').classList.toggle('d-none', pay !== 'Cash on delivery');
+            }
+            form.querySelectorAll('input[name="payment"]').forEach(r => r.addEventListener('change', updatePaymentUI));
+
+            /* ---------- CARD INPUT FORMATTING ---------- */
+            $('cardNumber').addEventListener('input', e => {
+                const digits = e.target.value.replace(/\D/g, '').slice(0, 16);
+                e.target.value = digits.replace(/(.{4})/g, '$1 ').trim();
+            });
+            $('cardExpiry').addEventListener('input', e => {
+                let v = e.target.value.replace(/\D/g, '').slice(0, 4);
+                if (v.length > 2) v = v.slice(0, 2) + '/' + v.slice(2);
+                e.target.value = v;
+            });
+            $('cardCvv').addEventListener('input', e => {
+                e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+            });
+
+            /* ---------- VALIDATION + PLACE ORDER ---------- */
+            function setInvalid(input, bad) {
+                input.classList.toggle('is-invalid', bad);
+            }
+
+            function validate() {
+                let ok = true;
+                form.querySelectorAll('.syn-input').forEach(input => {
+                    // skip fields that are hidden / not required
+                    if (!input.required) { setInvalid(input, false); return; }
+                    let bad = !input.checkValidity();
+
+                    if (input.id === 'cardNumber') bad = input.value.replace(/\s/g, '').length !== 16;
+                    if (input.id === 'cardExpiry') {
+                        const m = /^(0[1-9]|1[0-2])\/(\d{2})$/.exec(input.value);
+                        bad = !m;
+                        if (m) {
+                            const now = new Date();
+                            const exp = new Date(2000 + parseInt(m[2], 10), parseInt(m[1], 10), 1); // first day after expiry month
+                            bad = exp <= now;
+                        }
+                    }
+                    if (input.id === 'cardCvv') bad = !/^\d{3,4}$/.test(input.value);
+                    if (input.id === 'phone')   bad = !/^[0-9 ]{7,10}$/.test(input.value.trim());
+
+                    setInvalid(input, bad);
+                    if (bad) ok = false;
+                });
+                return ok;
+            }
+
+            // clear the red outline as soon as the person starts fixing a field
+            form.querySelectorAll('.syn-input').forEach(i => i.addEventListener('input', () => i.classList.remove('is-invalid')));
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                if (!validate()) {
+                    const firstBad = form.querySelector('.is-invalid');
+                    if (firstBad) { firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' }); firstBad.focus({ preventScroll: true }); }
+                    return;
+                }
+
+                const { p, qty, d, total } = render();
+                const orderNo = 'SYN-' + Date.now().toString().slice(-6) + Math.floor(Math.random() * 90 + 10);
+
+                $('confirmName').textContent = $('fullName').value.trim().split(' ')[0];
+                $('confirmEmail').textContent = $('email').value.trim();
+                $('confirmOrderNo').textContent = orderNo;
+                $('confirmItem').textContent = p.name + (qty > 1 ? ' × ' + qty : '');
+                $('confirmDelivery').textContent = d.text;
+                $('confirmPayment').textContent = form.querySelector('input[name="payment"]:checked').value;
+                $('confirmTotal').textContent = money(total);
+
+                new bootstrap.Modal($('confirmModal')).show();
+            });
+
+            /* ---------- INIT ---------- */
+            updateDeliveryUI();
+            updatePaymentUI();
+            render();
+        });
+    </script>
+</body>
+</html>
